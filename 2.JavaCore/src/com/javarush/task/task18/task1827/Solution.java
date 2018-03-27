@@ -36,8 +36,7 @@ id productName price quantity
 */
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -48,22 +47,58 @@ public class Solution {
         BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
         ArrayList<String> stringList = new ArrayList<>();
         while (fileReader.ready()) {
-            stringList.add(fileReader.readLine());
+            String n = fileReader.readLine();
+            if (!(n.equals(""))) {
+                stringList.add(n);
+            }
         }
 
+        Integer maxId = 0;
         ArrayList<Integer> idList = new ArrayList<>();
-        for (String str : stringList
-                ) {
-            String s = str.substring(0, 8).trim();
-            idList.add(Integer.parseInt(s));
+        if (stringList.size() != 0) {
+            for (String str : stringList
+                    ) {
+                String s = str.substring(0, 8).trim();
+                idList.add(Integer.parseInt(s));
+            }
+            Collections.sort(idList);
+            maxId = idList.get(idList.size() - 1);
         }
 
-        Collections.sort(idList);
-        int maxId = idList.get(idList.size() - 1);
+
+        LinkedHashMap<String, Integer> fieldMap = new LinkedHashMap<>();
+
+        //id - 8 symbols
+        fieldMap.put((++maxId).toString(), 8);
+        //name - 30 symbols
+        fieldMap.put(args[1], 30);
+        //price - 8 symbols
+        fieldMap.put(args[2], 8);
+        //quantity - 4 symbols
+        fieldMap.put(args[3], 4);
+
+        ArrayList<String> strArrList = new ArrayList<>();
+
+        for (HashMap.Entry<String, Integer> pair : fieldMap.entrySet()
+                ) {
+            String str = pair.getKey();
+            int delta = pair.getValue() - str.length();
+            if (delta > 0) {
+                for (int i = 1; i <= delta; i++) {
+                    str += " ";
+                }
+            } else if (delta < 0) {
+                str = str.substring(0, str.length() + delta);
+            }
+            strArrList.add(str);
+        }
 
         if (!(args.length == 0) && (args[0].equals("-c"))) {
             FileWriter fileWriter = new FileWriter(fileName, true);
-            String s = ++maxId + args[1] + args[2] + args[3];
+            String s = strArrList.get(0) +
+                    strArrList.get(1) +
+                    strArrList.get(2) +
+                    strArrList.get(3);
             fileWriter.append(s);
             fileWriter.append(System.lineSeparator());
             fileWriter.close();
@@ -72,6 +107,5 @@ public class Solution {
     }
 }
 
-//-c "Шорты пляжные черные с рисунко" "173.00  " "12  "
-//198478  Шорты пляжные черные с рисунко173.00  17
+//198478 "Шорты пляжные черные с рисунком обычные" 173.00 17
 ///home/ilya/file1.txt
