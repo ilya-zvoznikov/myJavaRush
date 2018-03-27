@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: D:\Documents\IdeaProjects\JavaRushTasks\3.JavaMultithreadi
- ng\src\com\javarush\task\task23\task2312\Room.java
-Main-Class: Room
-
