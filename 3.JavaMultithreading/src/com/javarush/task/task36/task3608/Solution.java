@@ -18,10 +18,11 @@ public class Solution {
 
         usersView.fireEventShowAllUsers();
 
-        usersView.fireEventOpenUserEditForm(126L);
+        usersView.fireEventOpenUserEditForm(126);
 
-//        editUserView.fireEventUserDeleted(124L);
+        editUserView.fireEventUserDeleted(124L);
 
         usersView.fireEventShowDeletedUsers();
+
     }
 }
