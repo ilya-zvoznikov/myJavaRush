@@ -1,7 +1,6 @@
 package com.javarush.task.task30.task3008.client;
 
 import com.javarush.task.task30.task3008.Connection;
-<<<<<<< HEAD
 import com.javarush.task.task30.task3008.ConsoleHelper;
 import com.javarush.task.task30.task3008.Message;
 import com.javarush.task.task30.task3008.MessageType;
@@ -12,13 +11,10 @@ import java.net.Socket;
 //import java.io.InputStreamReader;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
-=======
->>>>>>> ec70b27a87d6854e65316b122c5560c063f30757
 
 public class Client {
     public class SocketThread extends Thread {
 
-<<<<<<< HEAD
         protected void processIncomingMessage(String message) {
             ConsoleHelper.writeMessage(message);
         }
@@ -72,14 +68,11 @@ public class Client {
             }
 
         }
-=======
->>>>>>> ec70b27a87d6854e65316b122c5560c063f30757
     }
 
     protected Connection connection;
     private volatile boolean clientConnected = false;
 
-<<<<<<< HEAD
     protected String getServerAddress() {
         ConsoleHelper.writeMessage("Введите адрес сервера");
         String serverAddress = ConsoleHelper.readString();
@@ -151,6 +144,4 @@ public class Client {
         client.run();
     }
 
-=======
->>>>>>> ec70b27a87d6854e65316b122c5560c063f30757
 }
