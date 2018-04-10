@@ -81,6 +81,10 @@ public class Server {
                     String messageText = userName + ": " + message.getData();
                     sendBroadcastMessage(new Message(MessageType.TEXT, messageText));
                 } else {
+<<<<<<< HEAD
+=======
+//                    System.out.println("Это не текстовое сообщение");
+>>>>>>> ec70b27a87d6854e65316b122c5560c063f30757
                     ConsoleHelper.writeMessage("Это не текстовое сообщение!");
                 }
             }
@@ -88,7 +92,10 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
+<<<<<<< HEAD
         ConsoleHelper.writeMessage("Для запуска сервера введите номер порта");
+=======
+>>>>>>> ec70b27a87d6854e65316b122c5560c063f30757
         int port = ConsoleHelper.readInt();
         ServerSocket serverSocket = null;
         try {
